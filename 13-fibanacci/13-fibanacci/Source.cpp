@@ -1,5 +1,4 @@
 #include <iostream>
-#include <Windows.h>
 
 using namespace std;
 
@@ -17,11 +16,10 @@ int fibonacci(int N)
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    
+   
 	while (true)
     {
-		cout << "Введите число от 1 до 100: \n";
+		cout << "Enter a number from 1 to 100: \n";
 		int N;
 		cin >> N;
         
@@ -29,18 +27,18 @@ int main()
         {
             std::cin.clear();
             std::cin.ignore(32767, '\n');
-            cout << "Недопустимое значение! Попробуйте снова. \n";
+            cout << "Invalid value! Try again. \n";
         }
         
         else
         {
-            cout << "Первые " << N << " чисел Фибоначчи: \n";
+            cout << "The first " << N << " fibonacci numbers: \n";
 			
 			for (int n=0; n<N; ++n)
 					cout << fibonacci(n) << " ";
 		break;
 		}
 	}
-    
+   
     return 0;
 }
