@@ -1,7 +1,7 @@
 # Ignore build results
 **/Debug/*
 
-# information about the status of projects
+# Information about the status of projects
 *.sdf
 *.sln
 *.suo

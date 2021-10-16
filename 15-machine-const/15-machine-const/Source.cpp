@@ -182,12 +182,13 @@ int main()
 	cout << "The difference between machine epsilon and zero(float type): " << eps_f - zero_f << "\n";
 	cout << "The difference between machine epsilon and zero(double type): " << eps_d - zero_d << "\n";
 	cout << "The difference between machine epsilon and zero(long double type): " << eps_l - zero_l << "\n \n";
-	cout << "Machine positive infinity(float type): " << pos_inf_f << "\n";
+	cout << "Machine positive infinity(float type): " << pos_inf_f * 2.0 << "\n";
 	cout << "Machine positive infinity(double type): " << pos_inf_d << "\n";
 	cout << "Machine positive infinity(long double type): " << pos_inf_l << "\n \n";
-	cout << "Machine negative infinity(float type): " << neg_inf_f << "\n";
+	cout << "Machine negative infinity(float type): " << neg_inf_f * 2.0 << "\n";
 	cout << "Machine negative infinity(double type): " << neg_inf_d << "\n";
 	cout << "Machine negative infinity(long double type): " << neg_inf_l << "\n \n";
-	
+
+	//system ("pause");
 	return 0;
 }
