@@ -4,18 +4,20 @@
 class Lifo
 {
 private:
-	int *queue;
-	int size;
+    int* queue;
+    int size;
+
 public:
+	
 	Lifo(int N);
-
+	
 	~Lifo();
-
-	void push(int index, int obj);
 	
-	void out(int p);
+	void push(int num, int count);
 	
-	void pop(int k);
+	void show();
+	
+	void pop();
 	
 };
 

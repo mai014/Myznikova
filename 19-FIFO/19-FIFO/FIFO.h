@@ -4,19 +4,19 @@
 class Fifo
 {
 private:
-	int *queue;
-	int size;
+    int* queue;
+    int size;
+
 public:
 	Fifo(int N);
-
+	
 	~Fifo();
-
-	void push(int index, int obj);
 	
-	void out(int p);
+	void push(int num, int count);
 	
-	void pop(int k);
+	void show();
 	
+	void pop();
 };
 
 #endif

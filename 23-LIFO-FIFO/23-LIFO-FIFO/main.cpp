@@ -1,11 +1,13 @@
-#include "FIFO.h"
+#include "FIFOLIFO.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	Fifo array(0);
+	Lifo array(0);
+	
+	Container &rCont = array;
 	
 	cout << "Enter the number you want to put in the container: ";
 	int num;
@@ -13,8 +15,8 @@ int main()
 	
 	int count = 1;
 	
-	array.push(num, count);
-	array.show();
+	rCont.push(num, count);
+	rCont.show();
 
 	while(true)
 	{
@@ -29,8 +31,7 @@ int main()
 	    {
 	        cout << "Enter 1 to continue: ";
 	        cin >> index; 
-		
-		while (index != 1)
+	        while (index != 1)
 	        {
 	            cout << "Please, try again. \n\n";
 	            cout << "Enter 1 to continue: ";
@@ -47,16 +48,16 @@ int main()
 				int num;
 				cin >> num;
 	            
-				array.push(num, count);
-				array.show();
+				rCont.push(num, count);
+				rCont.show();
 	            
 				break;
 	            
             case 0:
 				--count;
                 
-                array.pop();
-                array.show();
+                rCont.pop();
+                rCont.show();
                 
                 break;
             

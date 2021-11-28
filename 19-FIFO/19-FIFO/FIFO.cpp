@@ -1,40 +1,56 @@
 #include "FIFO.h"
 #include <iostream>
-#include <cassert>
 
 using namespace std;
 
 Fifo::Fifo(int N) 
 {
-	assert(N > 0);
-	
 	size = N;
-
 	queue = new int[size];
 }
 
 Fifo::~Fifo() 
-	{
-		delete[] queue;
-	}
-
-void Fifo::push(int index, int obj)
 {
-	queue[size-index-1] = obj;
+	delete[] queue;
+}
+
+void Fifo::push(int num, int count)
+{
+	size = count;
+
+    if (size == 1)
+	   queue[0] = num;
+	else
+	{
+		for(int i = 1; i < size; ++i)
+			queue[size-i] = queue[size-i-1];
+	        
+		queue[0] = num;
+	}
+}
+
+void Fifo::show()
+{
+	if (size == 0)
+	    cout << "The container is empty. \n\n";
+	else
+	{
+	   int m = 0;
+	   
+	   cout << "The container now has: ";
+	   
+	   while (m < size)
+	   {
+	       cout << queue[m] <<" ";
+		   ++m;
+	   } 
+	   
+	   cout << "\n\n"; 
+	}
 }
 	
-void Fifo::pop(int k)
+void Fifo::pop()
 {
-	int m = 0;
-	cout << "The container now has: ";
-	while (m < size)
-	{
-		cout << queue[m] <<" ";
-		++m;
-	}
-
-    cout << "\n" << k + 1 << ". '" << queue[size-1] << "'" << " is getting out first \n" ;
-
-	--size;
-
+    cout << "'" << queue[size-1] << "'" << " is getting out first \n" ;
+    --size;
 }

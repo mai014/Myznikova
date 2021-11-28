@@ -5,28 +5,66 @@ using namespace std;
 
 int main()
 {
-	cout << "How many numbers do you want to put in the container? ";
-	int N;
-	cin >> N;
+	Lifo array(0);
+	
+	cout << "Enter the number you want to put in the container: ";
+	int num;
+	cin >> num;
+	
+	int count = 1;
+	
+	array.push(num, count);
+	array.show();
 
-	Lifo queue(N);
-	
-	int i = 0;
-	
-	while (i < N)
+	while(true)
 	{
-		cout << "Enter an integer: ";
-		int num;
-		cin >> num;
+	    int index;
+	    
+	    if (count > 0)
+	    {
+	        cout << "Enter 1 to continue, enter 0 to pull the number from the container: ";
+	        cin >> index;
+	    }
+	    else
+	    {
+	        cout << "Enter 1 to continue: ";
+	        cin >> index; 
 		
-		queue.push(i, num);
-		
-		++i;
+		while (index != 1)
+	        {
+	            cout << "Please, try again. \n\n";
+	            cout << "Enter 1 to continue: ";
+	            cin >> index;
+	        }
+	    }
+	    
+	    switch(index)
+	    {
+			case 1:
+				++count;
+	            
+				cout << "Enter the number you want to put in the container: ";
+				int num;
+				cin >> num;
+	            
+				array.push(num, count);
+				array.show();
+	            
+				break;
+	            
+			case 0:
+				--count;
+                
+                array.pop();
+                array.show();
+                
+                break;
+            
+			default:
+				cout << "Please, try again. \n\n";
+                break;
+	    }
 	}
-	
-	for (int j = 0; j < N; ++j)
-		queue.pop(j);
 
-	//system ("pause");
 	return 0;
 }

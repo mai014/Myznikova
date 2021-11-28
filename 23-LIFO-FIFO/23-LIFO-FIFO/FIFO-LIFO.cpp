@@ -1,20 +1,20 @@
-#include "LIFO.h"
+#include "FIFOLIFO.h"
 #include <iostream>
 
 using namespace std;
 
-Lifo::Lifo(int N) 
+Container::Container(int N) 
 {
 	size = N;
 	queue = new int[size];
 }
 
-Lifo::~Lifo() 
+Container::~Container() 
 {
 	delete[] queue;
 }
 
-void Lifo::push(int num, int count)
+void Container::push(int num, int count)
 {
 	size = count;
 
@@ -22,14 +22,14 @@ void Lifo::push(int num, int count)
 	   queue[0] = num;
 	else
 	{
-	   for(int i = 1; i < size; ++i)
-		   queue[size-i] = queue[size-i-1];
+		for(int i = 1; i < size; ++i)
+			queue[size-i] = queue[size-i-1];
 	        
-	   queue[0] = num;
+		queue[0] = num;
 	}
 }
 
-void Lifo::show()
+void Container::show()
 {
 	if (size == 0)
 	    cout << "The container is empty. \n\n";
@@ -43,12 +43,30 @@ void Lifo::show()
 	   {
 	       cout << queue[m] <<" ";
 		   ++m;
-	   }
-	    
+	   } 
+	   
 	   cout << "\n\n"; 
 	}
 }
-	
+
+void Container::pop() {}
+
+Fifo::Fifo(int N)
+    :Container(N)
+{
+}
+
+void Fifo::pop()
+{
+    cout << "'" << queue[size-1] << "'" << " is getting out first \n" ;
+    --size;
+}
+
+Lifo::Lifo(int N)
+    :Container(N)
+{
+}
+
 void Lifo::pop()
 {
     cout << "'" << queue[0] << "'" << " is getting out \n" ;
