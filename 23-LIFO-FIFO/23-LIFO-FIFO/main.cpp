@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	Lifo array(0);
+	Lifo array(0); // Fifo array(0)
 	
 	Container &rCont = array;
 	
