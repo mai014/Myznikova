@@ -9,3 +9,4 @@
 # System project MSBuild
 *.vcxproj
 *.vcxproj.filters
+*.vcxproj.user
