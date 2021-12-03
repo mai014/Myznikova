@@ -10,25 +10,23 @@ int main()
     Square square1(0,0,2);
     Square square2(3,4,2);
     
+	Object2D* obj[] = {&circle1, &circle2, &square1, &square2};
+
     cout << "Before: \n";
+	obj[0]->show();
+	obj[1]->show();
+    obj[2]->show();
+    obj[3]->show();
     
-    circle1.show();
-    circle2.show();
-    square1.show();
-    square2.show();
-    
-    cout << "After: \n";
-  
-    circle1.move(1,2);
-    circle1.scale(2);
+	cout << "After: \n";
+	circle1.move(1,2);
+	circle1.scale(2);
     circle1.rotate(30);
     circle1.show();
-    
     circle2.move(-5,0);
     circle2.scale(4);
     circle2.rotate(-5);
     circle2.show();
-    
     square1.move(1,2);
     square1.scale(2);
     square1.rotate(90);
